@@ -53,8 +53,8 @@ int main(int argc, char **argv) {
 
         // 此时管道的写入端口都被关闭了，子进程得以退出
         close(pipe1[1]);
-        // 这里如果没有wait(0)，会导致一些异常，怀疑可能是xv6没有对孤儿进程进行回收的能力
+        // 这里如果没有wait(0)，输出会异常
         wait(0);
+        exit(0);
     }
-    return 0;
 }
